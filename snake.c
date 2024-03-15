@@ -19,6 +19,11 @@ void draw()
     }
 }
 
+void player()
+{
+    printf("o");
+}
+
 int main()
 {
     draw();
