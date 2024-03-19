@@ -27,5 +27,6 @@ void player()
 int main()
 {
     draw();
+    player();
     return 0;
 }
