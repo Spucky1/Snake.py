@@ -1,1 +1,1 @@
-Simple game of snake made in c
+Simple game of snake made in python
