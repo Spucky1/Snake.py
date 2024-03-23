@@ -75,7 +75,7 @@ segements = []
 
 while True:
     wn.update()
-    if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor < -290:
+    if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor() < -290:
        time.sleep(1)
        head.goto(0,0)
        head.direction = "Stop"
@@ -105,32 +105,33 @@ while True:
             highscore = score
         pen.clear()
         pen.write("Score : {} High Score : {} ".format(
-            score, high_score), align="center", font=("candara", 24, "bold"))
-    for index in range(len(segments)-1, 0, -1):
-        x = segments[index-1].xcor()
-        y = segments[index-1].ycor()
-        segments[index].goto(x, y)
-    if len(segments) > 0:
+            score, highscore), align="center", font=("candara", 24, "bold"))
+    for index in range(len(segements)-1, 0, -1):
+        x = segements[index-1].xcor()
+        y = segements[index-1].ycor()
+        segements[index].goto(x, y)
+    if len(segements) > 0:
         x = head.xcor()
         y = head.ycor()
-        segments[0].goto(x, y)
+        segements[0].goto(x, y)
     move()
-    for segment in segments:
+    for segment in segements:
         if segment.distance(head) < 20:
             time.sleep(1)
             head.goto(0, 0)
             head.direction = "stop"
             colors = random.choice(['red', 'blue', 'green'])
             shapes = random.choice(['square', 'circle'])
-            for segment in segments:
+            for segment in segements:
                 segment.goto(1000, 1000)
-            segments.clear()
+            segements.clear()
  
             score = 0
             delay = 0.1
             pen.clear()
             pen.write("Score : {} High Score : {} ".format(
-                score, high_score), align="center", font=("candara", 24, "bold"))
+                score, highscore), align="center", font=("candara", 24, "bold"))
     time.sleep(delay)
+ 
  
 wn.mainloop()
